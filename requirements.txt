@@ -1,0 +1,26 @@
+fastapi==0.115.2
+uvicorn==0.30.6
+
+# Firebase
+firebase-admin==6.5.0
+pyrebase4==4.7.1
+
+# Google and Generative AI
+google-generativeai==0.7.2
+google-api-python-client==2.148.0
+google-auth==2.35.0
+google-ai-generativelanguage==0.6.3
+
+# Environment and HTTP
+python-dotenv==1.0.1
+requests==2.32.3
+
+# Data and utilities
+shapely==2.0.6
+pydantic==2.9.2
+
+# Earth Engine
+earthengine-api==0.1.403
+
+# Miscellaneous
+numpy==2.1.1

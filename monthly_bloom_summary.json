@@ -1,0 +1,745 @@
+{
+    "monthly_data": [
+        {
+            "id": "1",
+            "coordinates": [
+                -12.5,
+                134.8
+            ],
+            "monthlyData": [
+                {
+                    "date": "2023-01-31",
+                    "ndvi": 0.562315979280731,
+                    "evi": 0.324218353943617,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-02-28",
+                    "ndvi": 0.730419096762117,
+                    "evi": 0.394949402966978,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-03-06",
+                    "ndvi": 0.755134266250805,
+                    "evi": 0.401535689572253,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-04-23",
+                    "ndvi": 0.718882792908151,
+                    "evi": 0.378685607285848,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-05-01",
+                    "ndvi": 0.676097372111099,
+                    "evi": 0.365899371031533,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-06-01",
+                    "ndvi": 0.61803241381742,
+                    "evi": 0.327701124652743,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-07-01",
+                    "ndvi": 0.557966012467761,
+                    "evi": 0.280309159562574,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-08-01",
+                    "ndvi": 0.477574313146953,
+                    "evi": 0.235478482358647,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-09-30",
+                    "ndvi": 0.452138029306542,
+                    "evi": 0.241997105060766,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-10-01",
+                    "ndvi": 0.449395208896876,
+                    "evi": 0.241384095932657,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-11-30",
+                    "ndvi": 0.500597002409744,
+                    "evi": 0.327262251129584,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-12-19",
+                    "ndvi": 0.597594210909742,
+                    "evi": 0.329866561347758,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-01-31",
+                    "ndvi": 0.63558221237585,
+                    "evi": 0.395102152749117,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-02-02",
+                    "ndvi": 0.636233828539889,
+                    "evi": 0.391749353579916,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-03-31",
+                    "ndvi": 0.740486603245596,
+                    "evi": 0.431160516831679,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-04-06",
+                    "ndvi": 0.74432102879314,
+                    "evi": 0.443716673599965,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-05-01",
+                    "ndvi": 0.67598920078441,
+                    "evi": 0.400170476150133,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-06-01",
+                    "ndvi": 0.612820874468081,
+                    "evi": 0.318431487486582,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-07-01",
+                    "ndvi": 0.510362606180917,
+                    "evi": 0.265278192453799,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-08-01",
+                    "ndvi": 0.499927951175042,
+                    "evi": 0.233691886760818,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-09-13",
+                    "ndvi": 0.47877134140031,
+                    "evi": 0.227943451686415,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-10-01",
+                    "ndvi": 0.448809728388912,
+                    "evi": 0.236745245043031,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-11-30",
+                    "ndvi": 0.601569128606064,
+                    "evi": 0.297168580769353,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-12-31",
+                    "ndvi": 0.626534547768277,
+                    "evi": 0.349817726600192,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-01-31",
+                    "ndvi": 0.730350594157822,
+                    "evi": 0.404348056000257,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-02-02",
+                    "ndvi": 0.743557327142745,
+                    "evi": 0.402502305236906,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-03-01",
+                    "ndvi": 0.629629837230693,
+                    "evi": 0.372626240650195,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-04-07",
+                    "ndvi": 0.73415082763281,
+                    "evi": 0.443216491575537,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-05-01",
+                    "ndvi": 0.696509330121695,
+                    "evi": 0.373075923870363,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-06-01",
+                    "ndvi": 0.666794754799703,
+                    "evi": 0.357907923960158,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-07-01",
+                    "ndvi": 0.613240145226375,
+                    "evi": 0.30437629177481,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-08-01",
+                    "ndvi": 0.523205779985836,
+                    "evi": 0.276531161334116,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-09-01",
+                    "ndvi": 0.487070563978949,
+                    "evi": 0.26133111614508,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-10-01",
+                    "ndvi": 0.4851533357955,
+                    "evi": 0.280650891351506,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "coordinates": [
+                -12.6,
+                134.8
+            ],
+            "monthlyData": [
+                {
+                    "date": "2023-01-31",
+                    "ndvi": 0.564689008965207,
+                    "evi": 0.332569278234369,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-02-28",
+                    "ndvi": 0.65242324693358,
+                    "evi": 0.367721286267189,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-03-06",
+                    "ndvi": 0.740577130659326,
+                    "evi": 0.398688267822994,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-04-23",
+                    "ndvi": 0.693940279215744,
+                    "evi": 0.356779128653617,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-05-01",
+                    "ndvi": 0.654654797358474,
+                    "evi": 0.35059133089319,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-06-01",
+                    "ndvi": 0.585781937153112,
+                    "evi": 0.310093411435178,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-07-01",
+                    "ndvi": 0.53361370485887,
+                    "evi": 0.265891506595696,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-08-01",
+                    "ndvi": 0.43102311117269,
+                    "evi": 0.209759651305132,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-09-30",
+                    "ndvi": 0.423496180018433,
+                    "evi": 0.210405342939622,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-10-01",
+                    "ndvi": 0.421100187070894,
+                    "evi": 0.210688201439725,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-11-30",
+                    "ndvi": 0.491508578022112,
+                    "evi": 0.325712600309718,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-12-19",
+                    "ndvi": 0.617845312090819,
+                    "evi": 0.317474560746412,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-01-17",
+                    "ndvi": 0.62590044620563,
+                    "evi": 0.426971020385792,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-02-01",
+                    "ndvi": 0.604009949103397,
+                    "evi": 0.435627808387323,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-03-31",
+                    "ndvi": 0.72028172790371,
+                    "evi": 0.403026194162941,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-04-06",
+                    "ndvi": 0.72312439026866,
+                    "evi": 0.411012263040151,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-05-01",
+                    "ndvi": 0.63913241009584,
+                    "evi": 0.368653667028526,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-06-01",
+                    "ndvi": 0.599856059554116,
+                    "evi": 0.299636688733521,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-07-01",
+                    "ndvi": 0.506376452235512,
+                    "evi": 0.260872859494837,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-08-01",
+                    "ndvi": 0.483769213642472,
+                    "evi": 0.233947213755141,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-09-13",
+                    "ndvi": 0.452685634416985,
+                    "evi": 0.221777385433034,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-10-31",
+                    "ndvi": 0.423339355331165,
+                    "evi": 0.226240636507956,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-11-30",
+                    "ndvi": 0.612274608899216,
+                    "evi": 0.297086703020452,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-12-02",
+                    "ndvi": 0.634822325958137,
+                    "evi": 0.305967963873106,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-01-31",
+                    "ndvi": 0.720455669120708,
+                    "evi": 0.400253129101263,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-02-02",
+                    "ndvi": 0.733370720715234,
+                    "evi": 0.399600435449884,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-03-01",
+                    "ndvi": 0.625660070615964,
+                    "evi": 0.381597278577794,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-04-07",
+                    "ndvi": 0.699007915849565,
+                    "evi": 0.359841726655217,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-05-01",
+                    "ndvi": 0.666531329350337,
+                    "evi": 0.357106882442742,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-06-01",
+                    "ndvi": 0.63964466251619,
+                    "evi": 0.356569645704677,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-07-01",
+                    "ndvi": 0.564780865822056,
+                    "evi": 0.252047721538935,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-08-01",
+                    "ndvi": 0.490817831571233,
+                    "evi": 0.250423319610064,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-09-01",
+                    "ndvi": 0.468754698620974,
+                    "evi": 0.243605253464313,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-10-01",
+                    "ndvi": 0.465628256535808,
+                    "evi": 0.254439760533015,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "coordinates": [
+                -12.7,
+                134.8
+            ],
+            "monthlyData": [
+                {
+                    "date": "2023-01-01",
+                    "ndvi": 0.594124482352462,
+                    "evi": 0.316738267738921,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-02-28",
+                    "ndvi": 0.665795497006203,
+                    "evi": 0.385685001909311,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-03-06",
+                    "ndvi": 0.740657191531828,
+                    "evi": 0.414729888292619,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-04-23",
+                    "ndvi": 0.707350763214975,
+                    "evi": 0.373510610673809,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-05-01",
+                    "ndvi": 0.666759846847858,
+                    "evi": 0.363475914279606,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2023-06-01",
+                    "ndvi": 0.587812645553091,
+                    "evi": 0.313258442804701,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-07-01",
+                    "ndvi": 0.514783822859283,
+                    "evi": 0.247115843966071,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-08-01",
+                    "ndvi": 0.426176917609443,
+                    "evi": 0.201027392798591,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-09-30",
+                    "ndvi": 0.417617528181421,
+                    "evi": 0.202937053450506,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-10-01",
+                    "ndvi": 0.415230849783103,
+                    "evi": 0.203431833816177,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-11-30",
+                    "ndvi": 0.477609779426054,
+                    "evi": 0.306415473546405,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2023-12-19",
+                    "ndvi": 0.627909476927078,
+                    "evi": 0.326695624846422,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-01-17",
+                    "ndvi": 0.641646676820598,
+                    "evi": 0.433374705129766,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-02-01",
+                    "ndvi": 0.626220929034637,
+                    "evi": 0.423229276961919,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-03-31",
+                    "ndvi": 0.727051567238274,
+                    "evi": 0.398562042605624,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-04-06",
+                    "ndvi": 0.735869611722658,
+                    "evi": 0.406869621294666,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-05-01",
+                    "ndvi": 0.659156942099531,
+                    "evi": 0.383361885889434,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-06-01",
+                    "ndvi": 0.608456218649126,
+                    "evi": 0.30486499587589,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-07-01",
+                    "ndvi": 0.492715649038218,
+                    "evi": 0.239303758490067,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-08-01",
+                    "ndvi": 0.469116127855057,
+                    "evi": 0.215213234231643,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-09-13",
+                    "ndvi": 0.44010700691425,
+                    "evi": 0.206465434864516,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-10-31",
+                    "ndvi": 0.425388620917896,
+                    "evi": 0.222329266112034,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2024-11-30",
+                    "ndvi": 0.655846093068229,
+                    "evi": 0.321770305855808,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2024-12-02",
+                    "ndvi": 0.683147107228225,
+                    "evi": 0.335975053866947,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-01-31",
+                    "ndvi": 0.693776767485129,
+                    "evi": 0.400668044744452,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-02-02",
+                    "ndvi": 0.696470082380377,
+                    "evi": 0.400102210930421,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-03-01",
+                    "ndvi": 0.619549861434988,
+                    "evi": 0.399240019385865,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-04-07",
+                    "ndvi": 0.6928855022759,
+                    "evi": 0.367563239615899,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-05-09",
+                    "ndvi": 0.669069553475965,
+                    "evi": 0.355752207366375,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-06-01",
+                    "ndvi": 0.626014037733065,
+                    "evi": 0.351774405211654,
+                    "severity": 2,
+                    "severityLabel": "Moderate"
+                },
+                {
+                    "date": "2025-07-01",
+                    "ndvi": 0.557697862781688,
+                    "evi": 0.252815373308352,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-08-01",
+                    "ndvi": 0.479101765577428,
+                    "evi": 0.234714802399113,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-09-01",
+                    "ndvi": 0.450645484773888,
+                    "evi": 0.226323895476717,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                },
+                {
+                    "date": "2025-10-01",
+                    "ndvi": 0.447999969451036,
+                    "evi": 0.225312148101382,
+                    "severity": 1,
+                    "severityLabel": "Low"
+                }
+            ]
+        }
+    ]
+}
