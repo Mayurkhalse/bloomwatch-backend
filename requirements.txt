@@ -12,3 +12,5 @@ typing-extensions==4.14.1
 # Optional dependencies for CORS and JSON
 python-multipart==0.0.20
 orjson==3.11.3
+
+gunicorn==23.0.0
