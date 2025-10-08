@@ -366,29 +366,37 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ✅ Signup
 @app.post("/addUser")
 def add_user(username: str = Form(...), email: str = Form(...), password: str = Form(...)):
     try:
-        if auth is None:
-            raise HTTPException(status_code=500, detail="Firebase auth not initialized.")
         user = auth.create_user_with_email_and_password(email, password)
         uid = user['localId']
-        dbf.collection("users").document(uid).set({"username": username, "email": email})
+
+        # Save extra details in Firestore
+        dbf.collection("users").document(uid).set({
+            "username": username,
+            "email": email
+        })
+
         return {"message": "User created successfully", "uid": uid}
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=400)
 
+# ✅ Login
 @app.post("/login")
 async def login_user(email: str = Form(...), password: str = Form(...)):
     try:
-        if auth is None:
-            raise HTTPException(status_code=500, detail="Firebase auth not initialized.")
         user = auth.sign_in_with_email_and_password(email, password)
         token = user["idToken"]
         uid = user["localId"]
+
+        # Fetch user profile from Firestore
         user_doc = dbf.collection("users").document(uid).get()
         profile = user_doc.to_dict() if user_doc.exists else {}
+        print(profile)
         return {"message": "Login successful", "uid": uid, "profile": profile}
+    
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=400)
 
