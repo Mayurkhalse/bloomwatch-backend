@@ -35,11 +35,17 @@ load_dotenv()  # safe for local dev, Render will use env vars
 # - GEMINI_API_KEY: generative model API key
 # - GEN_MODEL: optional model name
 
-# --- ENVIRONMENT VARIABLES ---
+FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")     # path to uploaded secret file (Render secret file)
+FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")     # alternative: JSON string
+PYREBASE_CONFIG_JSON = os.getenv("PYREBASE_CONFIG_JSON") # optional: pyrebase config as JSON string
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEN_MODEL = os.getenv("GEN_MODEL", "gemini-1.5-pro")
-# ------------------- FIREBASE INITIALIZATION -------------------
-# ------------------ FIREBASE INITIALIZATION ------------------
+
+FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")   # path to uploaded secret file (Render secret file)
+FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")   # alternative: JSON string
+FIREBASE_DATABASE_URL = os.getenv("FIREBASE_DATABASE_URL", "")
+
+# --- Initialize Firebase admin only ---
 FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
 FIREBASE_DATABASE_URL = os.getenv("FIREBASE_DATABASE_URL")
 
@@ -49,30 +55,32 @@ if not FIREBASE_CRED_JSON:
 cred_dict = json.loads(FIREBASE_CRED_JSON)
 cred = credentials.Certificate(cred_dict)
 
+cred = credentials.Certificate("bloomwatch-70da0-firebase-adminsdk-fbsvc-042a03c59e.json")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': FIREBASE_DATABASE_URL
+    'databaseURL': 'https://bloomwatch-70da0-default-rtdb.firebaseio.com/'
 })
 
-# Firestore client
-dbf = firestore.client()
-
-# Firebase config (for frontend use only, no secrets here)
 firebaseConfig = {
-    "apiKey": os.getenv("FIREBASE_API_KEY"),
-    "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
-    "databaseURL": FIREBASE_DATABASE_URL,
-    "projectId": os.getenv("FIREBASE_PROJECT_ID"),
-    "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
-    "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
-    "appId": os.getenv("FIREBASE_APP_ID")
+  "apiKey": "AIzaSyA9S2gTCxOwt5_Yql0K9N5VtijGjr5qUmo",
+  "authDomain": "bloomwatch-70da0.firebaseapp.com",
+  "databaseURL": "https://bloomwatch-70da0-default-rtdb.firebaseio.com",
+  "projectId": "bloomwatch-70da0",
+  "storageBucket": "bloomwatch-70da0.firebasestorage.app",
+  "messagingSenderId": "977068987023",
+  "appId": "1:977068987023:web:cb5caf72b64048621516fa"
 }
 
-# ------------------- GEMINI INITIALIZATION -------------------
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+firebase = pyrebase.initialize_app(firebaseConfig)
+auth = firebase.auth()
+dbf = firestore.client()
+# Configure Gemini / Google GenAI SDK (best-effort)
 if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+    except Exception as e:
+        print("genai.configure failed (SDK may be unavailable). Will fallback to REST if needed:", e)
 else:
-    print("Warning: GEMINI_API_KEY not set.")
+    print("Warning: GEMINI_API_KEY not set. Set it in Render env vars or locally for dev.")
 
 # --- Utility functions (cleaned/fixed) ---
 def extract_text_from_content_block(content_block):
@@ -399,7 +407,7 @@ async def login_user(email: str = Form(...), password: str = Form(...)):
     
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=400)
-
+    
 @app.post("/addRegion")
 async def addRegion(uid: str = Form(...), lat_1: str = Form(...), lat_2: str = Form(...), lan_1: str = Form(...), lan_2: str = Form(...)):
     try:
