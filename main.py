@@ -36,37 +36,34 @@ load_dotenv()  # safe for local dev, Render will use env vars
 # - GEN_MODEL: optional model name
 
 # --- ENVIRONMENT VARIABLES ---
-FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")
-FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEN_MODEL = os.getenv("GEN_MODEL", "gemini-1.5-pro")
+# ------------------- FIREBASE INITIALIZATION -------------------
+FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")
+FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
 
-# --- INITIALIZE FIREBASE ---
-def init_firebase():
+def init_firebase_admin():
     if not firebase_admin._apps:
+        cred_obj = None
         if FIREBASE_CRED_FILE and os.path.exists(FIREBASE_CRED_FILE):
-            cred = credentials.Certificate(FIREBASE_CRED_FILE)
+            cred_obj = credentials.Certificate(FIREBASE_CRED_FILE)
         elif FIREBASE_CRED_JSON:
-            cred = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
+            cred_obj = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
         else:
             raise RuntimeError("Firebase credentials not provided.")
-        firebase_admin.initialize_app(cred, {
-            'databaseURL': os.getenv("FIREBASE_DATABASE_URL", "")
+        firebase_admin.initialize_app(cred_obj, {
+            "databaseURL": os.getenv("FIREBASE_DATABASE_URL", "")
         })
-    return firestore.client()
 
-try:
-    dbf = init_firebase()
-except Exception as e:
-    print("Firebase init failed:", e)
-    dbf = None
+init_firebase_admin()
+dbf = firestore.client()
 
-# --- GEMINI SETUP ---
+# ------------------- GEMINI INITIALIZATION -------------------
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if GEMINI_API_KEY:
-    try:
-        genai.configure(api_key=GEMINI_API_KEY)
-    except Exception as e:
-        print("genai.configure failed:", e)
+    genai.configure(api_key=GEMINI_API_KEY)
+else:
+    print("Warning: GEMINI_API_KEY not set.")
 
 # --- Utility functions (cleaned/fixed) ---
 def extract_text_from_content_block(content_block):
