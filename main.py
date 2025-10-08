@@ -39,22 +39,21 @@ load_dotenv()  # safe for local dev, Render will use env vars
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEN_MODEL = os.getenv("GEN_MODEL", "gemini-1.5-pro")
 # ------------------- FIREBASE INITIALIZATION -------------------
+# ------------------ FIREBASE INITIALIZATION ------------------
 FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")
 FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
 
 def init_firebase_admin():
     if not firebase_admin._apps:
-        cred_obj = None
         if FIREBASE_CRED_FILE and os.path.exists(FIREBASE_CRED_FILE):
-            cred_obj = credentials.Certificate(FIREBASE_CRED_FILE)
+            cred = credentials.Certificate(FIREBASE_CRED_FILE)
         elif FIREBASE_CRED_JSON:
-            cred_obj = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
+            cred = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
         else:
             raise RuntimeError("Firebase credentials not provided.")
-        firebase_admin.initialize_app(cred_obj, {
-            "databaseURL": os.getenv("FIREBASE_DATABASE_URL", "")
-        })
+        firebase_admin.initialize_app(cred)
 
+# Initialize Firebase
 init_firebase_admin()
 dbf = firestore.client()
 
