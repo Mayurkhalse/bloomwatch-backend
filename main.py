@@ -35,83 +35,38 @@ load_dotenv()  # safe for local dev, Render will use env vars
 # - GEMINI_API_KEY: generative model API key
 # - GEN_MODEL: optional model name
 
-FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")     # path to uploaded secret file (Render secret file)
-FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")     # alternative: JSON string
-PYREBASE_CONFIG_JSON = os.getenv("PYREBASE_CONFIG_JSON") # optional: pyrebase config as JSON string
+# --- ENVIRONMENT VARIABLES ---
+FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")
+FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEN_MODEL = os.getenv("GEN_MODEL", "gemini-1.5-pro")
 
-# --- Initialize Firebase safely ---
+# --- INITIALIZE FIREBASE ---
 def init_firebase():
-    """
-    Initialize firebase-admin and pyrebase using either:
-    - an uploaded secret file (preferred) pointed by FIREBASE_CRED_FILE, OR
-    - a FIREBASE_CRED_JSON env var containing the service account JSON.
-    Also initialize pyrebase using PYREBASE_CONFIG_JSON or specific env vars.
-    """
-    # firebase-admin
     if not firebase_admin._apps:
-        cred_obj = None
         if FIREBASE_CRED_FILE and os.path.exists(FIREBASE_CRED_FILE):
-            cred_obj = credentials.Certificate(FIREBASE_CRED_FILE)
+            cred = credentials.Certificate(FIREBASE_CRED_FILE)
         elif FIREBASE_CRED_JSON:
-            svc = json.loads(FIREBASE_CRED_JSON)
-            cred_obj = credentials.Certificate(svc)
+            cred = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
         else:
-            raise RuntimeError("Firebase credentials not provided. Set FIREBASE_CRED_FILE or FIREBASE_CRED_JSON.")
-
-        firebase_admin.initialize_app(cred_obj, {
+            raise RuntimeError("Firebase credentials not provided.")
+        firebase_admin.initialize_app(cred, {
             'databaseURL': os.getenv("FIREBASE_DATABASE_URL", "")
         })
+    return firestore.client()
 
-    # pyrebase (for auth)
-    py_config = None
-    if PYREBASE_CONFIG_JSON:
-        py_config = json.loads(PYREBASE_CONFIG_JSON)
-    else:
-        # fallback to environment variables (ensure these exist in Render env)
-        apiKey = os.getenv("PYREBASE_API_KEY")
-        authDomain = os.getenv("PYREBASE_AUTH_DOMAIN")
-        databaseURL = os.getenv("PYREBASE_DATABASE_URL")
-        projectId = os.getenv("PYREBASE_PROJECT_ID")
-        storageBucket = os.getenv("PYREBASE_STORAGE_BUCKET")
-        messagingSenderId = os.getenv("PYREBASE_MESSAGING_SENDER_ID")
-        appId = os.getenv("PYREBASE_APP_ID")
-
-        if apiKey and databaseURL and projectId:
-            py_config = {
-                "apiKey": apiKey,
-                "authDomain": authDomain,
-                "databaseURL": databaseURL,
-                "projectId": projectId,
-                "storageBucket": storageBucket,
-                "messagingSenderId": messagingSenderId,
-                "appId": appId
-            }
-
-    if not py_config:
-        raise RuntimeError("Pyrebase config not provided. Set PYREBASE_CONFIG_JSON or individual PYREBASE_* env vars.")
-
-    firebase = pyrebase.initialize_app(py_config)
-    auth = firebase.auth()
-    return auth, firestore.client(), firebase
-
-# Initialize external services
 try:
-    auth, dbf, pyrebase_app = init_firebase()
+    dbf = init_firebase()
 except Exception as e:
-    # If running locally without credentials, initialization will fail early
-    print("Firebase init failed:", str(e))
-    auth, dbf, pyrebase_app = (None, None, None)
+    print("Firebase init failed:", e)
+    dbf = None
 
-# Configure Gemini / Google GenAI SDK (best-effort)
+# --- GEMINI SETUP ---
 if GEMINI_API_KEY:
     try:
         genai.configure(api_key=GEMINI_API_KEY)
     except Exception as e:
-        print("genai.configure failed (SDK may be unavailable). Will fallback to REST if needed:", e)
-else:
-    print("Warning: GEMINI_API_KEY not set. Set it in Render env vars or locally for dev.")
+        print("genai.configure failed:", e)
 
 # --- Utility functions (cleaned/fixed) ---
 def extract_text_from_content_block(content_block):
