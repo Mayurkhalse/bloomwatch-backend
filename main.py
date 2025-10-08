@@ -40,22 +40,32 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEN_MODEL = os.getenv("GEN_MODEL", "gemini-1.5-pro")
 # ------------------- FIREBASE INITIALIZATION -------------------
 # ------------------ FIREBASE INITIALIZATION ------------------
-FIREBASE_CRED_FILE = os.getenv("FIREBASE_CRED_FILE")
 FIREBASE_CRED_JSON = os.getenv("FIREBASE_CRED_JSON")
+FIREBASE_DATABASE_URL = os.getenv("FIREBASE_DATABASE_URL")
 
-def init_firebase_admin():
-    if not firebase_admin._apps:
-        if FIREBASE_CRED_FILE and os.path.exists(FIREBASE_CRED_FILE):
-            cred = credentials.Certificate(FIREBASE_CRED_FILE)
-        elif FIREBASE_CRED_JSON:
-            cred = credentials.Certificate(json.loads(FIREBASE_CRED_JSON))
-        else:
-            raise RuntimeError("Firebase credentials not provided.")
-        firebase_admin.initialize_app(cred)
+if not FIREBASE_CRED_JSON:
+    raise RuntimeError("FIREBASE_CRED_JSON not set in environment variables")
 
-# Initialize Firebase
-init_firebase_admin()
+cred_dict = json.loads(FIREBASE_CRED_JSON)
+cred = credentials.Certificate(cred_dict)
+
+firebase_admin.initialize_app(cred, {
+    'databaseURL': FIREBASE_DATABASE_URL
+})
+
+# Firestore client
 dbf = firestore.client()
+
+# Firebase config (for frontend use only, no secrets here)
+firebaseConfig = {
+    "apiKey": os.getenv("FIREBASE_API_KEY"),
+    "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
+    "databaseURL": FIREBASE_DATABASE_URL,
+    "projectId": os.getenv("FIREBASE_PROJECT_ID"),
+    "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
+    "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
+    "appId": os.getenv("FIREBASE_APP_ID")
+}
 
 # ------------------- GEMINI INITIALIZATION -------------------
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
