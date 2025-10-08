@@ -54,7 +54,7 @@ if not FIREBASE_CRED_JSON:
 
 cred_dict = json.loads(FIREBASE_CRED_JSON)
 cred = credentials.Certificate(cred_dict)
-
+cred = credentials.Certificate("bloomwatch-70da0-firebase-adminsdk-fbsvc-042a03c59e.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://bloomwatch-70da0-default-rtdb.firebaseio.com/'
 })
