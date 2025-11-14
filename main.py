@@ -433,6 +433,42 @@ async def store_data(data: DataModel):
         return {"status": "success", "message": "Data stored in Firebase", "data": new_data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+@app.get("/getRegionData")
+async def get_region_data(uid: str = Query(..., description="User ID to fetch region data")):
+    """
+    Fetch region data (lat_1, lat_2, lan_1, lan_2) for a specific user from Firestore.
+    """
+    try:
+        # Fetch user document
+        user_doc = dbf.collection("users").document(uid).get()
+
+        # Check if user exists
+        if not user_doc.exists:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        user_data = user_doc.to_dict()
+
+        # Check if region data exists
+        if "region" not in user_data:
+            raise HTTPException(status_code=404, detail="Region data not found for this user")
+
+        region = user_data["region"]
+
+        # Prepare response
+        region_data = {
+            "lat_1": region.get("lat_1"),
+            "lat_2": region.get("lat_2"),
+            "lan_1": region.get("lan_1"),
+            "lan_2": region.get("lan_2"),
+        }
+
+        return JSONResponse(content={"uid": uid, "region": region_data}, status_code=200)
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        print("Error fetching region data:", e)
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/getData")
 async def get_data(uid: str = Query(..., description="User ID")):
