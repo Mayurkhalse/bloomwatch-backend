@@ -369,6 +369,7 @@ origins = [
 ]
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=origins,            # IMPORTANT
     allow_origin_regex=r"https://.*\.netlify\.app",
     allow_credentials=True,
     allow_methods=["*"],
